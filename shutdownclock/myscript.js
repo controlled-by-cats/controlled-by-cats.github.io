@@ -5,6 +5,7 @@ const start_of_shutdown = new Date('2025-10-1 12:01AM EST')
 
 var intervalID = window.setInterval(updateClock, 1000)
 
+//var txt = ""
 
 function updateClock() {
 
@@ -15,8 +16,34 @@ function updateClock() {
     var hours = (set/3600000)%24
     var days = (set/86400000)
 
+    seconds = Math.floor(seconds);
+    minutes = Math.floor(minutes);
+    hours = Math.floor(hours);
+    days = Math.floor(days);
 
-    document.getElementById('clock').innerHTML = `${Math.floor(days)}d ${Math.floor(hours)}h ${Math.floor(minutes)}m ${Math.floor(seconds)}s`
+    if(seconds < 10) {
+
+        seconds = `0${seconds}`;
+
+    }
+
+    if(minutes < 10) {
+
+        minutes = `0${minutes}`;
+
+    }
+
+    if(hours < 10) {
+
+        hours = `0${hours}`;
+
+    }
+    
+    txt = `${days}d ${hours}h ${minutes}m ${seconds}s`
+
+    //document.getElementById('clock').innerHTML = txt
+
+    document.getElementById('clock').innerHTML = txt
     
     console.log(set)
 
