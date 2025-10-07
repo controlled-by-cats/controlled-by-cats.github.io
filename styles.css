@@ -1,0 +1,161 @@
+
+
+@font-face {
+    font-family: robotoMono;
+    src: url(RobotoMono.ttf)
+}
+@font-face {
+    font-family: doto;
+    src: url(Doto.ttf)
+}
+@font-face {
+    font-family: vt323;
+    src: url(VT323-Regular.ttf)
+}
+
+@property --b {
+
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 0;
+
+}
+
+@keyframes bg {
+
+    0%{--b: 25}
+
+    100%{--b: 40}
+
+
+}
+
+body {
+
+    background:fixed;
+
+ 
+    
+    opacity: 1;
+    animation: bg 8s ease-in-out infinite alternate;
+    
+    background-image: linear-gradient(#000, rgb(0, 0, var(--b)));
+
+    
+
+}
+
+
+
+
+h {
+
+    font-family: vt323;
+
+    font-weight:700;
+    font-size: xx-large;
+
+    size:auto;
+    color: white;
+
+    -webkit-animation: glow_headers 8s ease-in-out infinite alternate;
+
+}
+
+h1 {
+    font-family: vt323;
+
+    font-weight: 500;
+    font-size: x-large;
+    color: white;
+
+    text-shadow: 0 0 2px lightblue,  0 0 5px blue;
+}
+
+h2 {
+    font-family: vt323;
+
+    font-size: xx-large;
+    color: white;
+
+    margin-top: 0px;
+    margin-bottom: 0;
+
+    text-align: center;
+
+    text-shadow: 0 0 2px lightblue,  0 0 5px blue, 0 0 10px white,  0 0 10px white;
+}
+h3 {
+
+    font-family: vt323;
+
+    font-size: x-large;
+    color: white;
+
+    text-align: center;
+
+    margin-top: 100px;
+    margin-bottom: 0;
+
+    text-shadow: 0 0 2px lightblue,  0 0 5px blue;
+
+}
+
+#moreinfo {
+
+    font-family: vt323;
+
+    margin-top: 0;
+    margin-bottom: 100px;
+    
+    font-size: large;
+    color: white;
+
+    text-align: center;
+
+    margin-bottom: 0;
+    font-style: italic;
+
+}
+
+#main {
+
+
+    margin-left: 5%;
+    margin-right: 10%;
+    
+}
+
+p {
+    size: normal;
+    font-family: robotomono;
+    color: lightgray;
+    margin-left:10px;
+}
+
+a {
+    color: lightblue;
+}
+
+@-webkit-keyframes glow_headers {
+
+    from {
+
+        text-shadow: 0 0 2px lightblue,  0 0 5px blue;
+        
+    }
+    to {
+
+        text-shadow: 0 0 2px white,  0 0 5px lightblue;
+
+    }
+
+}
+
+canvas {
+
+    margin-inline-start: 0;
+    margin-inline: 0;
+
+}
+
