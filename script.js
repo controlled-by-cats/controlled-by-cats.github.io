@@ -62,7 +62,8 @@ setInterval(update_grid, 100)
 
 function update_grid() {
 
-    let chars = ['.','.','-','=','+','*','%','&','#','#']
+    let chars = ['.','.','-','=','+','*','%','#','&','&']
+    //let chars2 = ['#','#','&','%','*','+','=','-','.','.']
 
     var ms_since_opened = Date.now() - start_time
 
@@ -85,7 +86,7 @@ function update_grid() {
 
         for(let x=0; x < xres; x++) {
 
-            let dist = (perlin.get(
+            let dist1 = (perlin.get(
                 
                 x/50*scale+ms_since_opened/5000 + Math.sin((ms_since_opened+3000)/15000),
                 y/50*scale + Math.sin(ms_since_opened/5000) + ms_since_opened/10000
@@ -99,22 +100,44 @@ function update_grid() {
             
             )+.6)/1.1
 
-            dist = (dist+dist2)/2
+            let dist3 =  (perlin.get(
+                
+                x/-1*scale + ms_since_opened/5000,// + Math.sin((ms_since_opened+3000)/15000),
+                y/-1*scale + Math.sin(ms_since_opened/5000) + ms_since_opened/10000
+            
+            ))/2
+
+            let dist = (dist1 + dist2 )/2
 
             dist = Math.min(dist, 1)
             dist = Math.max(dist, 0)
 
             let cur_char = chars[Math.round(dist*9)]
+
+            //let cur_char2 = chars2[Math.round(dist*9)]
+
             console.log(dist)
 
-            line = line+cur_char
+            /*if(dist2 > dist1) {
+                
+                //line = line+cur_char
+                line = line+"_"
 
+            } else {
+
+                //line = line+ cur_char2
+                line = line+"#"
+
+            }*/
+
+            line = line + cur_char
+            
             max = Math.max(max, dist)
             min = Math.min(min, dist)
 
         }
 
-        output = output + line + "<br>"
+        output = output+ line + "<br>"
 
     }
 
