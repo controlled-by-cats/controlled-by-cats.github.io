@@ -1,7 +1,7 @@
 
 
 
-const start_of_shutdown = new Date('2025-10-1 12:01AM EST')
+const start_of_shutdown = new Date(1759294860000)
 
 var intervalID = window.setInterval(updateClock, 20)
 
@@ -94,7 +94,7 @@ function updateClock() {
     console.log(set)
 
     console.log(Date.now())
-    console.log(Date.parse(start_of_shutdown))
+    console.log(1759294860000)
 
 
     //document.getElementById('clock').innerHTML = start_of_shutdown
