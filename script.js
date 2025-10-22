@@ -4,11 +4,16 @@
 // Create a canvas that extends the entire screen
 // and it will draw right over the other html elements, like buttons, etc
 
-setInterval(update_clock, 30)
+setInterval(update_clock, 50)
 
 var points = []
 
 const start_time = Date.now()
+
+let userAgent = navigator.userAgent;
+const is_firefox = (/Firefox/.test(userAgent))
+
+//is_firefox = true
 
 
 //perlin noise innit
@@ -55,9 +60,14 @@ let perlin = {
         return v;
     }
 }
-perlin.seed();
 
-setInterval(update_grid, 100)
+if(is_firefox) {
+
+    perlin.seed();
+
+    setInterval(update_grid, 100)
+
+}
 
 
 function update_grid() {
@@ -100,12 +110,12 @@ function update_grid() {
             
             )+.6)/1.1
 
-            let dist3 =  (perlin.get(
+            /*let dist3 =  (perlin.get(
                 
                 x/-1*scale + ms_since_opened/5000,// + Math.sin((ms_since_opened+3000)/15000),
                 y/-1*scale + Math.sin(ms_since_opened/5000) + ms_since_opened/10000
             
-            ))/2
+            ))/2*/
 
             let dist = (dist1 + dist2 )/2
 
@@ -116,7 +126,7 @@ function update_grid() {
 
             //let cur_char2 = chars2[Math.round(dist*9)]
 
-            console.log(dist)
+            //console.log(dist)
 
             /*if(dist2 > dist1) {
                 
@@ -208,7 +218,6 @@ function update_clock() {
 
     var element = document.getElementById("clock")
 
-    
 
     var ms = difference%1000
     var seconds = (difference/1000)%60
