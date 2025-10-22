@@ -34,7 +34,8 @@ function formatTime(time_ms) {
 
     if(hours < 10) {   hours = `0${hours}`; }
 
-    if(ms < 10) {   ms = `00${ms}`; } else
+    if(ms < 1) { ms = `0000`; } else 
+    if(ms < 10) {   ms = `000${ms}`; } else
     if(ms < 100) {   ms = `00${ms}`; } else
     if(ms < 1000) {   ms = `0${ms}`; }
     
@@ -93,8 +94,8 @@ function updateClock() {
     
     console.log(set)
 
-    console.log(Date.now())
-    console.log(1759294860000)
+    //console.log(Date.now())
+    //console.log(1759294860000)
 
 
     //document.getElementById('clock').innerHTML = start_of_shutdown
