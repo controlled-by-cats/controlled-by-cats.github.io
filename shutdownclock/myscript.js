@@ -34,10 +34,10 @@ function formatTime(time_ms) {
 
     if(hours < 10) {   hours = `0${hours}`; }
 
-    if(ms < 1) { ms = `0000`; } else 
-    if(ms < 10) {   ms = `000${ms}`; } else
-    if(ms < 100) {   ms = `00${ms}`; } else
-    if(ms < 1000) {   ms = `0${ms}`; }
+    if(ms < 1) { ms = `000`; } else 
+    if(ms < 10) {   ms = `00${ms}`; } else
+    if(ms < 100) {   ms = `0${ms}`; } else
+    if(ms < 1000) {   ms = `${ms}`; }
     
 
     var txt = "... ."
